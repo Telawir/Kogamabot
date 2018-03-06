@@ -702,15 +702,15 @@ async def warn(ctx, *, member : discord.Member = None, reason : str = 1):
         return await client.say("No reason entered.")
     pass
     channel = client.get_channel(channel)
-    em = discord.Embed(color=0x42fc07)
+    em = discord.Embed(description="You have been warned",title = "and this is a warning", color=0x42fc07)
     em.add_field(name='Warning', value=("You Have Been Warned -->"))
     em.add_field(name='User', value=(member))
     em.add_field(name='Reason', value=(reason))
     em.add_field(name='Moderator', value=(mod))
-    em.set_footer(text="Warnings had : {}".format(n))
-    await client.send_message(channel, embed=em)
-
-
+    em.set_footer(text ='u r nub')
+    await client.send_message(embed=em)
+    
+    
 @client.command(pass_context=True, hidden = True)
 async def report(ctx, user: discord.Member, *, reason):
     """Reports user and sends report to Admin"""
