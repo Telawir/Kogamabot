@@ -74,7 +74,7 @@ async def ping():
     ping = time.time() - pingtime
     await client.edit_message(pingms, ":ping_pong:  time is `%.0001f seconds`" % ping)
 
-#m3
+#################That's not neccessary to add it.
 @client.command(pass_context=True)
 async def setgame(ctx, *, game):
     """Sets my game (Owner only)"""
@@ -689,7 +689,7 @@ async def soft(ctx, user: discord.Member = None, *, reason: str = None):
  ###############################----------------------########################### 
 
 @client.command(pass_context = True)
-async def warn(ctx, *, member : discord.Member, reason : str = 1, n : str = 1):
+async def warn(ctx, *, member : discord.Member = None, reason : str = 1, n : str = 1):
 
     """Warns a Member"""
     user_roles = [r.name.lower() for r in ctx.message.author.roles]
@@ -698,12 +698,12 @@ async def warn(ctx, *, member : discord.Member, reason : str = 1, n : str = 1):
         return await client.say("You do not have the role: Admin")
     pass
 
-    if not member:
-        return await client.say(":x: No user Mentioned")
+    if member == None:
+        return await client.say("No user mentioned.")
     if reason == 1:
-        return await client.say(":x: No reason entered!")
+        return await client.say("No reason entered.")
     if n == 1:
-        return await client.say(":x: No Warn Number was selected")
+        return await client.say("No Warn Number was selected")
     channel = client.get_channel(channel)
     em = discord.Embed(color=0x42fc07)
     em.add_field(name='Warning', value=("You Have Been Warned -->"))
