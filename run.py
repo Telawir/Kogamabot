@@ -708,7 +708,7 @@ async def warn(ctx, *, member : discord.Member = None, reason : str = 1):
     em.add_field(name='Reason', value=(reason))
     em.add_field(name='Moderator', value=(mod))
     em.set_footer(text ='u r nub')
-    await client.send_message(embed=em)
+    await client.say(embed=em)
     
     
 @client.command(pass_context=True, hidden = True)
