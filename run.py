@@ -5,7 +5,7 @@ import time
 import os
 
 
-from config import link, prefix, ownerid
+from config import link, prefix, ownerid, token
 from discord.ext.commands import Bot
 
 client = Bot('prefix')
