@@ -18,7 +18,31 @@ async def on_ready():
     print("Username: %s"%client.user.name)
     print("ID: %s"%client.user.id)
     print("----------------------")
-          
+     
+@client.event
+async def on_message(message,pass_context=True):
+    server = message.server
+    channel = message.channel
+       
+    if any(word in message.content for word in["<@215761992474951681>"]):
+        try:
+            swearwarn=await client.send_message(channel, message.author.mention + " Don't ping the devs!")
+        except Exception as e:
+            print(e)
+        try:
+            await client.delete_message(message)
+        except Exception as e:
+            print(e)            
+    if any(word in message.content for word in["bitch", "dick", "porn", "fuck"]):
+        try:
+            swearwarn=await client.send_message(channel, message.author.mention + " Watch your language")
+        except Exception as e:
+            print(e)
+        try:
+            await client.delete_message(message)
+        except Exception as e:
+            print(e)        
+    
 #m1 
 @client.command(pass_context=True)
 async def help(ctx):
