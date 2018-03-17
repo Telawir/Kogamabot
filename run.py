@@ -8,7 +8,7 @@ import os
 from config import link, prefix, ownerid
 from discord.ext.commands import Bot
 
-client = Bot('koga')
+client = Bot('prefix')
 client.remove_command('help')
 
 @client.event
@@ -28,20 +28,20 @@ async def on_message(message,pass_context=True):
         try:
             swearwarn=await client.send_message(channel, message.author.mention + " Don't ping the devs!")
         except Exception as e:
-            print(e)
+            await client.send_message(channel, "An error occured:" + str(e))
         try:
             await client.delete_message(message)
         except Exception as e:
-            print(e)            
+            await client.send_message(channel, "An error occured:" + str(e))            
     if any(word in message.content for word in["bitch", "dick", "porn", "fuck"]):
         try:
             swearwarn=await client.send_message(channel, message.author.mention + " Watch your language")
         except Exception as e:
-            print(e)
+             await client.send_message(channel, "An error occured:" + str(e))
         try:
             await client.delete_message(message)
         except Exception as e:
-            print(e)        
+            await client.send_message(channel, "An error occured:" + str(e))       
     
 #m1 
 @client.command(pass_context=True)
