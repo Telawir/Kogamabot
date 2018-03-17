@@ -9,7 +9,7 @@ from config import link, prefix, ownerid
 from discord.ext.commands import Bot
 
 client = Bot(prefix)
-client.remove_command('help')
+client.remove_command('koga')
 
 @client.event
 async def on_ready():
